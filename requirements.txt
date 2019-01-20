@@ -1,2 +1,0 @@
--e git+https://github.com:ScriptSmith/socialreaper.git#egg=socialreaper
-tqdm==4.23.4
