@@ -1,4 +1,4 @@
-from unittest import *
+from unittest import TestCase
 from instaphyte import Instagram
 
 hashtags = ["beach", "gym", "puppies", "party", "throwback"]
