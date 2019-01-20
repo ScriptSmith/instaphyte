@@ -1,6 +1,8 @@
 # Instaphyte
 
 [![Build Status](https://travis-ci.org/ScriptSmith/instaphyte.svg?branch=master)](https://travis-ci.org/ScriptSmith/instaphyte)
+[![Code Quality](https://img.shields.io/codacy/grade/a2322f650025499bb8aee2368ca43207.svg)](https://app.codacy.com/project/ScriptSmith/instaphyte/dashboard)
+[![Code Coverage](https://img.shields.io/codacy/coverage/a2322f650025499bb8aee2368ca43207.svg)](https://app.codacy.com/project/ScriptSmith/instaphyte/dashboard)
 [![License](https://img.shields.io/github/license/scriptsmith/instaphyte.svg)](https://github.com/ScriptSmith/instaphyte/blob/master/LICENSE)
 
 Fast and simple Instagram hashtag and location scraper.
