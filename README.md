@@ -72,6 +72,12 @@ Example:
 from instaphyte import Instagram
 
 api = Instagram()
+
+# Get 1000 posts from #selfie
 for post in api.hashtag("selfie", 1000):
+    print(post)
+
+# Get all posts tagged as being in London
+for post in api.location("213385402"):
     print(post)
 ```
