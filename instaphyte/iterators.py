@@ -37,8 +37,8 @@ class Instagram(Source):
             except ApiError as e:
                 raise IterError(e, vars(self))
 
-    def hashtag(self, tag, count):
+    def hashtag(self, tag, count=0):
         return self.InstagramIter(tag, self.api.hashtag, count, "hashtag")
 
-    def location(self, tag, count):
+    def location(self, tag, count=0):
         return self.InstagramIter(tag, self.api.location, count, "location")
