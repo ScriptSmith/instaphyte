@@ -18,7 +18,13 @@ class InstagramAPI(API):
             return None
 
         if return_results:
-            return req.json()
+            try:
+                return req.json()
+            except json.JSONDecodeError:
+                print("API response was not valid JSON")
+                print(req.text)
+                sleep(10)
+                return self.api_call(edge, parameters, return_results=return_results)
 
     def hashtag(self, tag, max_id=None, params=None):
         parameters = {
