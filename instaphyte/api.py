@@ -11,6 +11,10 @@ class InstagramAPI(API):
         self.request_rate = 0
         self.last_request = time()
 
+        # Make work better with poor connections
+        self.retry_rate = 10
+        self.num_retries = 15
+
     def api_call(self, edge, parameters, return_results=True):
         req = self.get("%s/%s" % (self.url, edge), params=parameters,
                        headers={'Connection': 'close'})
