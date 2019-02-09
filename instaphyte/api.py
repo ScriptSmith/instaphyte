@@ -10,7 +10,7 @@ class InstagramAPI(API):
 
         self.url = "https://instagram.com/explore"
 
-        # Make work better with poor connections
+        # Work better with poor connections
         self.retry_rate = 10
         self.num_retries = 15
 

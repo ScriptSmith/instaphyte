@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import argparse
+import requests
 from tqdm import tqdm
 from socialreaper.tools import save_file, CSV, to_json
 
@@ -32,6 +33,14 @@ parser.add_argument("--downdir", type=str,
                     help="Directory to save media")
 
 
+def safe_download(name, url, directory):
+    try:
+        save_file(name, url, directory)
+    except requests.exceptions.RequestException:
+        print(f"Downloading {url} as {name} to {directory} failed.")
+        print("Skipping")
+
+
 def main():
     args = parser.parse_args()
 
@@ -48,15 +57,15 @@ def main():
     for post in itr:
         posts.append(post)
         if args.download and not args.waitDownload:
-            save_file(post["node"]["shortcode"] + ".jpg",
-                      post["node"]["display_url"],
-                      down_dir)
+            safe_download(post["node"]["shortcode"] + ".jpg",
+                          post["node"]["display_url"],
+                          down_dir)
 
     if args.waitDownload:
         for post in posts:
-            save_file(post["node"]["shortcode"] + ".jpg",
-                      post["node"]["display_url"],
-                      down_dir)
+            safe_download(post["node"]["shortcode"] + ".jpg",
+                          post["node"]["display_url"],
+                          down_dir)
 
     filename = args.filename.replace("[id]", args.id)
 
@@ -69,6 +78,7 @@ def main():
         if args.filetype == "both" or args.filename == "[id]":
             filename += ".json"
         to_json(posts, filename=filename)
+
 
 if __name__ == "__main__":
     main()
