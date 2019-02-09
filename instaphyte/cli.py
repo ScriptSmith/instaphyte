@@ -69,3 +69,6 @@ def main():
         if args.filetype == "both" or args.filename == "[id]":
             filename += ".json"
         to_json(posts, filename=filename)
+
+if __name__ == "__main__":
+    main()
