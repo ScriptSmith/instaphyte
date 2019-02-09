@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import os
 
 import argparse
 import requests
@@ -35,7 +36,8 @@ parser.add_argument("--downdir", type=str,
 
 def safe_download(name, url, directory):
     try:
-        save_file(name, url, directory)
+        if not os.path.exists(os.path.join(directory, name)):
+            save_file(name, url, directory)
     except requests.exceptions.RequestException:
         print(f"Downloading {url} as {name} to {directory} failed.")
         print("Skipping")
