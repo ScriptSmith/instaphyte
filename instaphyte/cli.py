@@ -70,7 +70,7 @@ def main():
 
     for c, post in enumerate(itr):
         if stream:
-            with open(streamFilename, 'a') as f:
+            with open(streamFilename, 'a', encoding='utf-8') as f:
                 if c != 0:
                     f.write(",\n")
                 json.dump(post, f, indent=4)
