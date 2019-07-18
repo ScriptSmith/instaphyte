@@ -61,7 +61,7 @@ def main():
     stream = args.stream and args.filetype != "csv"
     streamFilename = filename + ".json" if args.filetype == "both" or args.filename == "[id]" else ""
     if (stream):
-        with open(streamFilename, 'w') as f:
+        with open(streamFilename, 'w', encoding="utf-8") as f:
             f.write("[\n")
     
     itr = tqdm(function(args.id, args.count), total=args.count, desc=args.id,
@@ -73,7 +73,7 @@ def main():
             with open(streamFilename, 'a', encoding='utf-8') as f:
                 if c != 0:
                     f.write(",\n")
-                json.dump(post, f, indent=4)
+                json.dump(post, f, indent=4, ensure_ascii=False)
         else:
             posts.append(post)
 
@@ -89,7 +89,7 @@ def main():
                           down_dir)
 
     if stream:
-        with open(streamFilename, "a") as f:
+        with open(streamFilename, "a", encoding="utf-8") as f:
             f.write("]")
         return
 
