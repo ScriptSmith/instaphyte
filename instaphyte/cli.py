@@ -57,13 +57,13 @@ def main():
         .replace("[endpoint]", args.feed) \
         .replace("[id]", args.id)
     filename = args.filename.replace("[id]", args.id)
-    
+
     stream = args.stream and args.filetype != "csv"
     streamFilename = filename + ".json" if args.filetype == "both" or args.filename == "[id]" else ""
     if (stream):
         with open(streamFilename, 'w', encoding="utf-8") as f:
             f.write("[\n")
-    
+
     itr = tqdm(function(args.id, args.count), total=args.count, desc=args.id,
                disable=args.silent)
     posts = []
