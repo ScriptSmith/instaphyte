@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/github/license/scriptsmith/instaphyte.svg)](https://github.com/ScriptSmith/instaphyte/blob/master/LICENSE)
 [![Speed](https://firebasestorage.googleapis.com/v0/b/instagram-speed-test.appspot.com/o/instaphyte.svg?alt=media&token=8e16505d-1259-42a4-90bc-cf8a6d326f55)](https://adamsm.com/instagram-speed-test)
 
-Fast and simple Instagram hashtag and location scraper.
+Fast and simple Instagram hashtag scraper.
 
 For a more powerful scraper, try [Instamancer](https://github.com/scriptsmith/instamancer)
 

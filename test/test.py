@@ -31,12 +31,3 @@ class Tests(TestCase):
 
     def test_hashtag_large(self):
         self._test_size(hashtags[:1], self.api.hashtag, largeSize)
-
-    def test_location_small(self):
-        self._test_size(locations, self.api.location, smallSize)
-
-    def test_location_medium(self):
-        self._test_size(locations[:3], self.api.location, mediumSize)
-
-    def test_location_large(self):
-        self._test_size(locations[:1], self.api.location, largeSize)

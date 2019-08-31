@@ -10,11 +10,9 @@ from socialreaper.tools import save_file, CSV, to_json
 from instaphyte.iterators import Instagram
 
 parser = argparse.ArgumentParser(
-    description="Scrape Instagram hashtag and location feeds"
+    description="Scrape Instagram hashtag feeds"
 )
 parser.set_defaults(func=lambda x: parser.print_usage())
-parser.add_argument("feed", type=str, choices=["hashtag", "location"],
-                    help="The type of feed to scrape posts from")
 parser.add_argument("id", type=str,
                     help="The id of the feed to scrape posts from")
 parser.add_argument("--count", "-c", type=int, default=0,
@@ -52,9 +50,8 @@ def main():
     api = Instagram()
     if args.silent:
         api.api.log_function = lambda v: None
-    function = api.hashtag if args.feed == "hashtag" else api.location
     down_dir = args.downdir \
-        .replace("[endpoint]", args.feed) \
+        .replace("[endpoint]", "hashtag") \
         .replace("[id]", args.id)
     filename = args.filename.replace("[id]", args.id)
 
@@ -64,7 +61,7 @@ def main():
         with open(streamFilename, 'w', encoding="utf-8") as f:
             f.write("[\n")
 
-    itr = tqdm(function(args.id, args.count), total=args.count, desc=args.id,
+    itr = tqdm(api.hashtag(args.id, args.count), total=args.count, desc=args.id,
                disable=args.silent)
     posts = []
 

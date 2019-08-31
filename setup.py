@@ -8,8 +8,8 @@ requirements = [
 ]
 
 setup(name='instaphyte',
-      version='1.1.1',
-      description='Simple Instagram hashtag and location scraper',
+      version='2.0.0',
+      description='Simple Instagram hashtag scraper',
       author='Adam Smith',
       author_email='adam.smith1@uq.edu.au',
       url='https://github.com/scriptsmith/instaphyte',
